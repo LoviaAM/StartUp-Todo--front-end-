@@ -9,3 +9,5 @@ export interface todo {
 export interface todoProp {
     todos: todo
 }
+
+// interface for the database information

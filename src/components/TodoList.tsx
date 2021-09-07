@@ -1,4 +1,15 @@
-import { Table, Input, Segment } from "semantic-ui-react";
+import { Input } from "semantic-ui-react";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  Box,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import Checklist from "../Checklist.json";
 import { todo } from "../utils/interface";
@@ -24,31 +35,36 @@ export default function TodoList(): JSX.Element {
 
   // add post to the database
   return (
-    <>
-      <Segment>
-        <Input placeholder="Search..." onChange={handleChangeToSearchBox} />
-        <Table celled>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Task</Table.HeaderCell>
-              <Table.HeaderCell>Tag</Table.HeaderCell>
-              <Table.HeaderCell>Add</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-
-          <Table.Body>
-            {filteredChecklist.map((item: todo) => (
-              <Table.Row key={item.id}>
-                <Table.Cell>{item.description}</Table.Cell>
-                <Table.Cell>{item.tag}</Table.Cell>
-                <Table.Cell>
-                  <AddItem todos={item} />
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </Segment>
-    </>
+    <Box>
+      <Input placeholder="Search..." onChange={handleChangeToSearchBox} />
+      <Table variant="simple" size ="lg" colorScheme="twitter">
+        <TableCaption>Start Up Business Checker </TableCaption>
+        <Thead>
+          <Tr>
+            <Th>Task</Th>
+            <Th>Tag</Th>
+            <Th>ADD</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {filteredChecklist.map((item: todo) => (
+            <Tr key={item.id}>
+              <Td>{item.description}</Td>
+              <Td>{item.tag}</Td>
+              <Td>
+                <AddItem todos={item} />
+              </Td>
+            </Tr>
+          ))}
+        </Tbody>
+        <Tfoot>
+          <Tr>
+            <Th>Task</Th>
+            <Th>Tag</Th>
+            <Th>Add</Th>
+          </Tr>
+        </Tfoot>
+      </Table>
+    </Box>
   );
 }

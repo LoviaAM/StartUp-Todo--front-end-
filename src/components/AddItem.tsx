@@ -1,5 +1,5 @@
-import { Button } from "semantic-ui-react";
 import { todoProp } from "../utils/interface";
+import { Button} from "@chakra-ui/react";
 
 export default function AddItem (prop : todoProp): JSX.Element{
     const description = prop.todos.description
@@ -22,7 +22,7 @@ export default function AddItem (prop : todoProp): JSX.Element{
   };
     return(
         <>
-        <Button class="ui button" color="green" onClick={() => submitPost()}>ADD</Button>
+        <Button colorScheme="teal" variant="solid" onClick={() => submitPost()}>ADD</Button>
         </>
         
     )
