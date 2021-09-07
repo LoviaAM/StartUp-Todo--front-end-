@@ -1,0 +1,110 @@
+[
+    {"id":1,
+        "tag":"Research",
+        "description": "Complete SWOT ANALYSIS",
+        "resource":"",
+        "video":""
+    },
+    {"id":2,
+        "tag":"Finance",
+        "description": "Determine Start Up Costs",
+        "resource":"",
+        "video":""
+    },
+    {"id":3,
+        "tag":"Finance",
+        "description": "Research and Apply for Business Loan",
+        "resource":"",
+        "video":""
+    },
+    {"id":4,
+        "tag":"Finance",
+        "description": "Get business bank account",
+        "resource":"",
+        "video":""
+    },
+    {"id":5,
+        "tag":"Finance",
+        "description": "Hire an Accountant",
+        "resource":"",
+        "video":""
+    },
+    {"id":6,
+        "tag":"",
+        "description": "Complete SWOT ANALYSIS",
+        "resource":"",
+        "video":""
+    },
+    {"id":7,
+        "tag":"Legal",
+        "description": "Incorporate Business",
+        "resource":"",
+        "video":""
+    },
+    {"id":8,
+        "tag":"Legal",
+        "description": "Register Business Name",
+        "resource":"",
+        "video":""
+    },
+    {"id":9,
+        "tag":"Development",
+        "description": "Create a Business Plan",
+        "resource":"",
+        "video":""
+    },
+    {"id":10,
+        "tag": "Development",
+        "description": "Create a Marketing Plan",
+        "resource":"",
+        "video":""
+    },
+    {"id":11,
+        "tag":"Legal",
+        "description": "Hire a lawyer",
+        "resource":"",
+        "video":""
+    },
+    {"id":12,
+        "tag":"Product",
+        "description": "Create MVP",
+        "resource":"",
+        "video":""
+    },
+    {"id":13,
+        "tag":"Product",
+        "description": "Conduct customer research",
+        "resource":"",
+        "video":""
+    },
+    {"id":14,
+        "tag":"Product",
+        "description": "Determine Pricing",
+        "resource":"",
+        "video":""
+    },
+    {"id":15,
+        "tag":"Product",
+        "description": "Find sales platform",
+        "resource":"",
+        "video":""
+    },
+    {"id":16,
+        "tag":"Product",
+        "description": "Identify business structure",
+        "resource":"",
+        "video":""
+    },
+    {"id":17,
+        "tag":"Product",
+        "description": "Get relevant insurance",
+        "resource":"",
+        "video":""
+    }, 
+    {"id":17,
+        "tag":"Product",
+        "description": "conduct risk assessment",
+        "resource":"",
+        "video":""
+    }
+]
