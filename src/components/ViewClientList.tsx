@@ -27,7 +27,8 @@ export default function ViewClientList(): JSX.Element {
   // retrieve the post from data base
   async function getPosts() {
     try {
-      const response = await fetch("http://localhost:4000/start-up/viewpost");
+      const apiBaseURL = process.env.REACT_APP_API_BASE;
+      const response = await fetch(apiBaseURL + "start-up/viewpost");
       const jsonData: clientTodo[] = await response.json();
       console.log(jsonData);
       setClientPosts(jsonData);

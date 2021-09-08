@@ -24,14 +24,12 @@ export default function EditCheckList(prop: clientTodoProp): JSX.Element {
     e.preventDefault();
     try {
       const body = { description };
-      await fetch(
-        `http://localhost:4000/start-up/post/${prop.clientTodo.post_id}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
-        }
-      );
+      const apiBaseURL = process.env.REACT_APP_API_BASE;
+      await fetch(apiBaseURL + `${prop.clientTodo.post_id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
       //The window.location object can be used to get the current page address (URL) and to redirect the browser to a new page
     } catch (err) {
       console.log(err.message);

@@ -7,7 +7,8 @@ export default function AddItem(prop: todoProp): JSX.Element {
   const submitPost = async () => {
     try {
       const body = { description, tag };
-      const response = await fetch("http://localhost:4000/start-up/input", {
+      const apiBaseURL = process.env.REACT_APP_API_BASE;
+      const response = await fetch(apiBaseURL + "start-up/input", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body), //understand this code- fetching post request
