@@ -25,7 +25,7 @@ export default function EditCheckList(prop: clientTodoProp): JSX.Element {
     try {
       const body = { description };
       const apiBaseURL = process.env.REACT_APP_API_BASE;
-      await fetch(apiBaseURL + `${prop.clientTodo.post_id}`, {
+      await fetch(apiBaseURL + `/start-up/post/${prop.clientTodo.post_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
