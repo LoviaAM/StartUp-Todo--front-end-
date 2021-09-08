@@ -1,5 +1,4 @@
-import { Box, Heading, HStack } from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/button";
+import { Box, Heading} from "@chakra-ui/layout";
 import "../stylesheet.css";
 
 export default function HeaderFunction(): JSX.Element {
@@ -12,25 +11,11 @@ export default function HeaderFunction(): JSX.Element {
 
   return (
     <>
-      <Box bg="300" divider="column-reverse">
-        <HStack spacing="38px">
-          <Box>
-            <Button size="lg" colorScheme="pink" mt="24px">
-              Sign Up
-            </Button>
-          </Box>
-          <Box>
-            <Button size="lg" colorScheme="yellow" mt="24px">
-              Sign In
-            </Button>
-          </Box>
-        </HStack>
-      </Box>
       <Box h="320px" bg="200" borderRadius="lg" w="100%" alignItems="baseline">
         <Heading
           mb={4}
           className="heading"
-          colourScheme="white"
+          colour="pink"
           size="3xl"
           fontSize="100px"
           fontFamily=""
@@ -41,3 +26,18 @@ export default function HeaderFunction(): JSX.Element {
     </>
   );
 }
+
+// Simple grid 
+// align items
+//bg: useColorModeValue('gray.200', 'gray.700')
+{/* <Stack spacing={8} mt={2}></Stack> */}
+//Flex wrap -- uss around  a omo
+//Grid 
+{/* <SimpleGrid
+        columns={3}
+        minChildWidth="30%"
+        spacing="20px"
+        py={6}
+        mx={10}
+        mb={10}
+      ></SimpleGrid> */}

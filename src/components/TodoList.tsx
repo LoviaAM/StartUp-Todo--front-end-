@@ -29,11 +29,7 @@ export default function TodoList(): JSX.Element {
 
   // filter function for search through todo list
   function TodoDescriptionMatchesSearchTerm(item: todo) {
-    if (item.description.includes(searchList)) {
-      return item.description.includes(searchList);
-    } else if (item.tag.includes(searchList)) {
-      return item.tag.includes(searchList);
-    }
+    return (!item.description.includes(searchList))
   }
   const filteredChecklist = Checklist.filter(TodoDescriptionMatchesSearchTerm); // conducts search on the basis of description  //task assign to not include!
 

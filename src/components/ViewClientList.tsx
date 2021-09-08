@@ -3,7 +3,19 @@ import { useEffect, useState } from "react";
 import { clientTodo } from "../utils/interface";
 import "../stylesheet.css";
 import { VStack, Box } from "@chakra-ui/layout";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  HStack,
+} from "@chakra-ui/react";
 import { Checkbox } from "@chakra-ui/checkbox";
+import EditCheckList from "./EditCheckList";
 
 export default function ViewClientList(): JSX.Element {
   const [clientPosts, setClientPosts] = useState<clientTodo[]>([]);
@@ -30,18 +42,41 @@ export default function ViewClientList(): JSX.Element {
 
   return (
     <Box w="50%" bg="">
-      <VStack spacing={10} size="lg">
-        {clientPosts ? (
-          clientPosts.map((post: clientTodo) => (
-            <Checkbox key={post.post_id}>
-              {" "}
-              {post.post_description}- ({post.post_tag})
-            </Checkbox>
-          ))
-        ) : (
-          <p></p>
-        )}
-      </VStack>
+      {/* <VStack spacing={10} size="lg">
+       
+      </VStack> */}
+      <Table variant="simple" size="lg" colorScheme="twitter">
+        <TableCaption>Start Up Business Checker </TableCaption>
+        <Thead>
+          <Tr>
+            <Th>TO-DO</Th>
+            <Th>Edit</Th>
+            <Th>Done</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {clientPosts ? (
+            clientPosts.map((post: clientTodo) => (
+              <Tr key={post.post_id}>
+                <Td>
+                  {post.post_description})
+                </Td>
+                <Td><EditCheckList clientTodo= {post}/></Td>
+                <Td><Checkbox>  </Checkbox></Td>
+              </Tr>
+            ))
+          ) : (
+            <p></p>
+          )}
+        </Tbody>
+        <Tfoot>
+          <Tr>
+            <Th>Task</Th>
+            <Th>Tag</Th>
+            <Th>Add</Th>
+          </Tr>
+        </Tfoot>
+      </Table>
     </Box>
   );
 }
