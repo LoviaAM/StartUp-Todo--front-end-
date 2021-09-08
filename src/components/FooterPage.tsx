@@ -12,15 +12,6 @@ import {
 } from "@chakra-ui/react";
 import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 
-
-const FooterPage = ({ children }: { children: ReactNode }) => {
-  return (
-    <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
-      {children}
-    </Text>
-  );
-};
-
 const SocialButton = ({
   children,
   label,
@@ -53,7 +44,7 @@ const SocialButton = ({
   );
 };
 
-export default function LargeWithAppLinksAndSocial() {
+export default function FooterPage(): JSX.Element {
   return (
     <Box
       bg={useColorModeValue("gray.50", "gray.900")}

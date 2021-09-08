@@ -24,5 +24,10 @@ const theme = extendTheme({
     400: "#FFB703",
     500: "#Fb8500",
   },
+  fonts: {
+    heading: "Roboto Condensed",
+    // body: "Roboto Condensed",
+    // box: "Roboto Condensed"
+  },
 });
 export default theme;

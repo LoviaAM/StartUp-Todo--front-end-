@@ -9,8 +9,8 @@ import {
   Td,
   TableCaption,
   Box,
-  HStack,
   VStack,
+  Grid,
 } from "@chakra-ui/react";
 import { FormControl, FormLabel, FormHelperText } from "@chakra-ui/react";
 import { useState, Fragment } from "react";
@@ -29,7 +29,7 @@ export default function TodoList(): JSX.Element {
 
   // filter function for search through todo list
   function TodoDescriptionMatchesSearchTerm(item: todo) {
-    return (!item.description.includes(searchList))
+    return !item.description.includes(searchList);
   }
   const filteredChecklist = Checklist.filter(TodoDescriptionMatchesSearchTerm); // conducts search on the basis of description  //task assign to not include!
 
@@ -49,7 +49,7 @@ export default function TodoList(): JSX.Element {
         </FormControl>
       </VStack>
 
-      <HStack>
+      <Grid templateColumns="repeat(2, 1fr)" gap={10}>
         <Box
           bg="gray.100"
           color="black"
@@ -85,8 +85,10 @@ export default function TodoList(): JSX.Element {
             </Tfoot>
           </Table>
         </Box>
-        <ViewClientList />
-      </HStack>
+        <Box>
+          <ViewClientList />
+        </Box>
+      </Grid>
     </Fragment>
   );
 }

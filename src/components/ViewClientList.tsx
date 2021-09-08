@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { clientTodo } from "../utils/interface";
 import "../stylesheet.css";
-import { VStack, Box } from "@chakra-ui/layout";
+import { Box } from "@chakra-ui/layout";
 import {
   Table,
   Thead,
@@ -12,7 +12,6 @@ import {
   Th,
   Td,
   TableCaption,
-  HStack,
 } from "@chakra-ui/react";
 import { Checkbox } from "@chakra-ui/checkbox";
 import EditCheckList from "./EditCheckList";
@@ -58,11 +57,13 @@ export default function ViewClientList(): JSX.Element {
           {clientPosts ? (
             clientPosts.map((post: clientTodo) => (
               <Tr key={post.post_id}>
+                <Td>{post.post_description}</Td>
                 <Td>
-                  {post.post_description})
+                  <EditCheckList clientTodo={post} />
                 </Td>
-                <Td><EditCheckList clientTodo= {post}/></Td>
-                <Td><Checkbox>  </Checkbox></Td>
+                <Td>
+                  <Checkbox> </Checkbox>
+                </Td>
               </Tr>
             ))
           ) : (
