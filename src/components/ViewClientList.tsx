@@ -29,29 +29,31 @@ export default function ViewClientList(): JSX.Element {
   }, [setClientPosts]);
 
   return (
-      <Box w="50%" bg="">
-        <VStack spacing={10} size="lg">
-          {clientPosts ? (
-            clientPosts.map((post: clientTodo) => (
-              <Checkbox key={post.post_id}> {post.post_description}- ({post.post_tag})</Checkbox>
-            ))
-          ) : (
-            <p></p>
-          )}
-        </VStack>
+    <Box w="50%" bg="">
+      <VStack spacing={10} size="lg">
+        {clientPosts ? (
+          clientPosts.map((post: clientTodo) => (
+            <Checkbox key={post.post_id}>
+              {" "}
+              {post.post_description}- ({post.post_tag})
+            </Checkbox>
+          ))
+        ) : (
+          <p></p>
+        )}
+      </VStack>
     </Box>
   );
 }
 
 // // deploy unto heroku and  netlify
-// design better wider box 
- 
+// design better wider box
+
 //  add a delete posts (handler)
 // add an edit (1hr max
 
 // Go to Neill concerning  the filter
 // the automatic refresh
 
-
-// add company name and 
+// add company name and
 // set up the connection string

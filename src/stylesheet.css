@@ -14,7 +14,7 @@ body {
     /* The second layer */ 0 10px 0 -5px #eee,
     /* The second layer shadow */ 0 10px 1px -4px rgba(0, 0, 0, 0.15),
     /* The third layer */ 0 20px 0 -10px #eee,
-    /* The third layer shadow */ 2px 2px 7px 1px rgba(28,110,164,0.73);
+    /* The third layer shadow */ 2px 2px 7px 1px rgba(28, 110, 164, 0.73);
   padding: 30px;
 }
 
@@ -39,11 +39,10 @@ input[type="checkbox"] {
 .subheading {
   font-family: Impact, Charcoal, sans-serif;
   font-size: 90px;
-
 }
 
-.heading{
-    align-items: center;
-    width: 70%;
-    font-size: 90px;
+.heading {
+  align-items: center;
+  width: 70%;
+  font-size: 90px;
 }

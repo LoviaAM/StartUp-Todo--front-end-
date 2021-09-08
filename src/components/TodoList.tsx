@@ -10,13 +10,9 @@ import {
   TableCaption,
   Box,
   HStack,
-  VStack
+  VStack,
 } from "@chakra-ui/react";
-import {
-  FormControl,
-  FormLabel,
-  FormHelperText,
-} from "@chakra-ui/react";
+import { FormControl, FormLabel, FormHelperText } from "@chakra-ui/react";
 import { useState, Fragment } from "react";
 import Checklist from "../Checklist.json";
 import { todo } from "../utils/interface";
@@ -44,12 +40,17 @@ export default function TodoList(): JSX.Element {
   // add post to the database
   return (
     <Fragment>
-    <VStack>
-      <FormControl id="searchtodo" >
-        <FormLabel>Search Checklist</FormLabel>
-        <Input type="email" onChange={handleChangeToSearchBox} size="large" variant="filled" />
-        <FormHelperText>Search through checklist.</FormHelperText>
-      </FormControl>
+      <VStack>
+        <FormControl id="searchtodo">
+          <FormLabel>Search Checklist</FormLabel>
+          <Input
+            type="email"
+            onChange={handleChangeToSearchBox}
+            size="large"
+            variant="filled"
+          />
+          <FormHelperText>Search through checklist.</FormHelperText>
+        </FormControl>
       </VStack>
 
       <HStack>

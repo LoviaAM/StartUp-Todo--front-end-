@@ -10,15 +10,15 @@ export interface todoProp {
   todos: todo;
 }
 
-export interface clientTodo{
-    post_id : number;
-    post_description : string
-    post_tag: string
-    post_resource?: null | string
-    post_video? : null | string
+export interface clientTodo {
+  post_id: number;
+  post_description: string;
+  post_tag: string;
+  post_resource?: null | string;
+  post_video?: null | string;
 }
 
-export interface clientTodoProp{
-    clientTodo: clientTodo
+export interface clientTodoProp {
+  clientTodo: clientTodo;
 }
 // interface for the database information

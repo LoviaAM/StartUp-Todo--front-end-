@@ -15,14 +15,14 @@ export default function HeaderFunction(): JSX.Element {
       <Box bg="300" divider="column-reverse">
         <HStack spacing="38px">
           <Box>
-          <Button size="lg" colorScheme="pink" mt="24px">
-            Sign Up
-          </Button>
+            <Button size="lg" colorScheme="pink" mt="24px">
+              Sign Up
+            </Button>
           </Box>
           <Box>
-          <Button size="lg" colorScheme="yellow" mt="24px">
-            Sign In
-          </Button>
+            <Button size="lg" colorScheme="yellow" mt="24px">
+              Sign In
+            </Button>
           </Box>
         </HStack>
       </Box>
