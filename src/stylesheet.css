@@ -38,6 +38,12 @@ input[type="checkbox"] {
 
 .subheading {
   font-family: Impact, Charcoal, sans-serif;
-  font-size: px;
+  font-size: 90px;
 
+}
+
+.heading{
+    align-items: center;
+    width: 70%;
+    font-size: 90px;
 }

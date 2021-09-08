@@ -9,11 +9,19 @@ import {
   Td,
   TableCaption,
   Box,
+  HStack,
+  VStack
 } from "@chakra-ui/react";
-import { useState } from "react";
+import {
+  FormControl,
+  FormLabel,
+  FormHelperText,
+} from "@chakra-ui/react";
+import { useState, Fragment } from "react";
 import Checklist from "../Checklist.json";
 import { todo } from "../utils/interface";
 import AddItem from "./AddItem";
+import ViewClientList from "./ViewClientList";
 
 export default function TodoList(): JSX.Element {
   const [searchList, setSearchList] = useState("");
@@ -35,36 +43,53 @@ export default function TodoList(): JSX.Element {
 
   // add post to the database
   return (
-    <Box>
-      <Input placeholder="Search..." onChange={handleChangeToSearchBox} />
-      <Table variant="simple" size ="lg" colorScheme="twitter">
-        <TableCaption>Start Up Business Checker </TableCaption>
-        <Thead>
-          <Tr>
-            <Th>Task</Th>
-            <Th>Tag</Th>
-            <Th>ADD</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {filteredChecklist.map((item: todo) => (
-            <Tr key={item.id}>
-              <Td>{item.description}</Td>
-              <Td>{item.tag}</Td>
-              <Td>
-                <AddItem todos={item} />
-              </Td>
-            </Tr>
-          ))}
-        </Tbody>
-        <Tfoot>
-          <Tr>
-            <Th>Task</Th>
-            <Th>Tag</Th>
-            <Th>Add</Th>
-          </Tr>
-        </Tfoot>
-      </Table>
-    </Box>
+    <Fragment>
+    <VStack>
+      <FormControl id="searchtodo" >
+        <FormLabel>Search Checklist</FormLabel>
+        <Input type="email" onChange={handleChangeToSearchBox} size="large" variant="filled" />
+        <FormHelperText>Search through checklist.</FormHelperText>
+      </FormControl>
+      </VStack>
+
+      <HStack>
+        <Box
+          bg="gray.100"
+          color="black"
+          borderWidth="6px"
+          fontWeight="semibold"
+        >
+          <Table variant="simple" size="lg" colorScheme="twitter">
+            <TableCaption>Start Up Business Checker </TableCaption>
+            <Thead>
+              <Tr>
+                <Th>Task</Th>
+                <Th>Tag</Th>
+                <Th>ADD</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {filteredChecklist.map((item: todo) => (
+                <Tr key={item.id}>
+                  <Td>{item.description}</Td>
+                  <Td>{item.tag}</Td>
+                  <Td>
+                    <AddItem todos={item} />
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+            <Tfoot>
+              <Tr>
+                <Th>Task</Th>
+                <Th>Tag</Th>
+                <Th>Add</Th>
+              </Tr>
+            </Tfoot>
+          </Table>
+        </Box>
+        <ViewClientList />
+      </HStack>
+    </Fragment>
   );
 }

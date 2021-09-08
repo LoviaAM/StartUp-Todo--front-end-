@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from "@chakra-ui/layout";
+import { Box, Heading, HStack } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
 import "../stylesheet.css";
 
@@ -11,15 +11,33 @@ export default function HeaderFunction(): JSX.Element {
   //     const { activeItem } = this.state
 
   return (
-    <Box maxH="120rem" bg="pink.700" borderRadius="lg" w="100%">
-      <Heading mb={4}>Modern online and offline payments for Africa</Heading>
-      <Text fontSize="xl">
-        Paystack helps businesses in Africa get paid by anyone, anywhere in the
-        world
-      </Text>
-      <Button size="lg" colorScheme="green" mt="24px">
-        Create a free account
-      </Button>
-    </Box>
+    <>
+      <Box bg="300" divider="column-reverse">
+        <HStack spacing="38px">
+          <Box>
+          <Button size="lg" colorScheme="pink" mt="24px">
+            Sign Up
+          </Button>
+          </Box>
+          <Box>
+          <Button size="lg" colorScheme="yellow" mt="24px">
+            Sign In
+          </Button>
+          </Box>
+        </HStack>
+      </Box>
+      <Box h="320px" bg="200" borderRadius="lg" w="100%" alignItems="baseline">
+        <Heading
+          mb={4}
+          className="heading"
+          colourScheme="white"
+          size="3xl"
+          fontSize="100px"
+          fontFamily=""
+        >
+          START-UP CHECKLIST
+        </Heading>
+      </Box>
+    </>
   );
 }
