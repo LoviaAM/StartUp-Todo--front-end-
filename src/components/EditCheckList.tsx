@@ -24,12 +24,12 @@ export default function EditCheckList(prop: clientTodoProp): JSX.Element {
     try {
       const body = { description };
       const apiBaseURL = process.env.REACT_APP_API_BASE;
-      await fetch(apiBaseURL+`/start-up/post/${prop.clientTodo.post_id}`, {
+      await fetch(apiBaseURL + `/start-up/post/${prop.clientTodo.post_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      await prop.getPosts()
+      await prop.getPosts();
     } catch (err) {
       console.log(err.message);
     }
@@ -55,7 +55,7 @@ export default function EditCheckList(prop: clientTodoProp): JSX.Element {
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant="pink.300" onClick={(e)=>updateDescription(e)}>
+            <Button variant="pink.300" onClick={(e) => updateDescription(e)}>
               DONE
             </Button>
           </ModalFooter>

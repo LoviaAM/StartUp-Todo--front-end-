@@ -29,7 +29,7 @@ export default function ViewClientList(): JSX.Element {
   // retrieve the post from data base
   async function getPosts() {
     try {
-        console.log("I was called")
+      console.log("I was called");
       const apiBaseURL = process.env.REACT_APP_API_BASE;
       const response = await fetch(apiBaseURL + "/start-up/viewpost");
       const jsonData: clientTodo[] = await response.json();
@@ -52,40 +52,40 @@ export default function ViewClientList(): JSX.Element {
         </Text>
       </VStack>
       <VStack>
-      <Table variant="simple" size="lg" colorScheme="twitter">
-        <TableCaption>Start Up Business Checker </TableCaption>
-        <Thead>
-          <Tr>
-            <Th>TO-DO</Th>
-            <Th>Edit</Th>
-            <Th>Done</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {clientPosts ? (
-            clientPosts.map((post: clientTodo) => (
-              <Tr key={post.post_id}>
-                <Td>{post.post_description}</Td>
-                <Td>
-                  <EditCheckList clientTodo={post} getPosts={getPosts} />
-                </Td>
-                <Td>
-                  <Checkbox> </Checkbox>
-                </Td>
-              </Tr>
-            ))
-          ) : (
-            <p></p>
-          )}
-        </Tbody>
-        <Tfoot>
-          <Tr>
-            <Th>Task</Th>
-            <Th>Tag</Th>
-            <Th>Add</Th>
-          </Tr>
-        </Tfoot>
-      </Table>
+        <Table variant="simple" size="lg" colorScheme="twitter">
+          <TableCaption>Start Up Business Checker </TableCaption>
+          <Thead>
+            <Tr>
+              <Th>TO-DO</Th>
+              <Th>Edit</Th>
+              <Th>Done</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {clientPosts ? (
+              clientPosts.map((post: clientTodo) => (
+                <Tr key={post.post_id}>
+                  <Td>{post.post_description}</Td>
+                  <Td>
+                    <EditCheckList clientTodo={post} getPosts={getPosts} />
+                  </Td>
+                  <Td>
+                    <Checkbox> </Checkbox>
+                  </Td>
+                </Tr>
+              ))
+            ) : (
+              <p></p>
+            )}
+          </Tbody>
+          <Tfoot>
+            <Tr>
+              <Th>Task</Th>
+              <Th>Tag</Th>
+              <Th>Add</Th>
+            </Tr>
+          </Tfoot>
+        </Table>
       </VStack>
     </Box>
   );
