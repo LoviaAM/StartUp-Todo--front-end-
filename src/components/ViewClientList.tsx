@@ -14,6 +14,8 @@ import {
   TableCaption,
   VStack,
   Text,
+  HStack,
+  Button,
 } from "@chakra-ui/react";
 import { Checkbox } from "@chakra-ui/checkbox";
 import EditCheckList from "./EditCheckList";
@@ -57,56 +59,63 @@ export default function ViewClientList(): JSX.Element {
   }, [setClientPosts]);
 
   return (
-    <Box color="black" borderWidth="6px" fontWeight="semibold">
+    <>
       <VStack>
-        <Text fontSize="lg" color="pink.400">
-          {" "}
-          YOUR BUSINESS TO-DO LIST
-        </Text>
+        <HStack spacing={8}>
+          <Text fontSize="lg" color="pink.400">
+            {" "}
+            YOUR BUSINESS TO-DO LIST
+          </Text>
+          <Button colorScheme="pink" onClick={getPosts}>
+            SAVE
+          </Button>
+        </HStack>
       </VStack>
-      <VStack>
-        <Table variant="simple" size="lg" colorScheme="twitter">
-          <TableCaption>StartUp Business Checker </TableCaption>
-          <Thead>
-            <Tr>
-              <Th>TO-DO</Th>
-              <Th>Edit</Th>
-              <Th>Done</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {clientPosts ? (
-              clientPosts.map((post: clientTodo) => (
-                <Tr key={post.post_id}>
-                  <Td>{post.post_description}</Td>
-                  <Td>
-                    <EditCheckList clientTodo={post} getPosts={getPosts} />
-                  </Td>
-                  <Td>
-                    <Checkbox
-                      iconColor="blue.400"
-                      iconSize="1rem"
-                      colorScheme="green"
-                      onChange={(e) => deletePost(post.post_id)}
-                    >
-                      {" "}
-                    </Checkbox>
-                  </Td>
-                </Tr>
-              ))
-            ) : (
-              <p></p>
-            )}
-          </Tbody>
-          <Tfoot>
-            <Tr>
-              <Th>Task</Th>
-              <Th>Tag</Th>
-              <Th>Add</Th>
-            </Tr>
-          </Tfoot>
-        </Table>
-      </VStack>
-    </Box>
+      <Box color="black" borderWidth="6px" fontWeight="semibold">
+        <VStack>
+          <Table variant="simple" size="lg" colorScheme="twitter">
+            <TableCaption>StartUp Business Checker </TableCaption>
+            <Thead>
+              <Tr>
+                <Th>TO-DO</Th>
+                <Th>Edit</Th>
+                <Th>Done</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {clientPosts ? (
+                clientPosts.map((post: clientTodo) => (
+                  <Tr key={post.post_id}>
+                    <Td>{post.post_description}</Td>
+                    <Td>
+                      <EditCheckList clientTodo={post} getPosts={getPosts} />
+                    </Td>
+                    <Td>
+                      <Checkbox
+                        iconColor="blue.400"
+                        iconSize="1rem"
+                        colorScheme="green"
+                        onChange={(e) => deletePost(post.post_id)}
+                      >
+                        {" "}
+                      </Checkbox>
+                    </Td>
+                  </Tr>
+                ))
+              ) : (
+                <p></p>
+              )}
+            </Tbody>
+            <Tfoot>
+              <Tr>
+                <Th>Task</Th>
+                <Th>Tag</Th>
+                <Th>Add</Th>
+              </Tr>
+            </Tfoot>
+          </Table>
+        </VStack>
+      </Box>
+    </>
   );
 }
