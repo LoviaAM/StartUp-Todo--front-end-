@@ -39,6 +39,19 @@ export default function ViewClientList(): JSX.Element {
       console.error(err.message);
     }
   }
+  async function deletePost(id: number){
+    try {
+      //delete id specified as the parameter
+      const apiBaseURL = process.env.REACT_APP_API_BASE
+      await fetch(apiBaseURL+`/start-up/post/${id}`, {
+        method: "DELETE",
+      });
+      console.log(deletePost)
+    } catch (err) {
+      console.error(err.message);
+    }
+}
+
   useEffect(() => {
     getPosts();
   }, [setClientPosts]);
@@ -53,7 +66,7 @@ export default function ViewClientList(): JSX.Element {
       </VStack>
       <VStack>
         <Table variant="simple" size="lg" colorScheme="twitter">
-          <TableCaption>Start Up Business Checker </TableCaption>
+          <TableCaption>StartUp Business Checker </TableCaption>
           <Thead>
             <Tr>
               <Th>TO-DO</Th>
@@ -70,7 +83,7 @@ export default function ViewClientList(): JSX.Element {
                     <EditCheckList clientTodo={post} getPosts={getPosts} />
                   </Td>
                   <Td>
-                    <Checkbox> </Checkbox>
+                    <Checkbox  iconColor="blue.400" iconSize="1rem" colorScheme="green" onChange={(e)=>deletePost(post.post_id)}> </Checkbox>
                   </Td>
                 </Tr>
               ))
@@ -90,15 +103,3 @@ export default function ViewClientList(): JSX.Element {
     </Box>
   );
 }
-
-// // deploy unto heroku and  netlify
-// design better wider box
-
-//  add a delete posts (handler)
-// add an edit (1hr max
-
-// Go to Neill concerning  the filter
-// the automatic refresh
-
-// add company name and
-// set up the connection string
