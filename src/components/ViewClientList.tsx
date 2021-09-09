@@ -12,6 +12,8 @@ import {
   Th,
   Td,
   TableCaption,
+  VStack,
+  Text,
 } from "@chakra-ui/react";
 import { Checkbox } from "@chakra-ui/checkbox";
 import EditCheckList from "./EditCheckList";
@@ -27,6 +29,7 @@ export default function ViewClientList(): JSX.Element {
   // retrieve the post from data base
   async function getPosts() {
     try {
+        console.log("I was called")
       const apiBaseURL = process.env.REACT_APP_API_BASE;
       const response = await fetch(apiBaseURL + "/start-up/viewpost");
       const jsonData: clientTodo[] = await response.json();
@@ -41,10 +44,14 @@ export default function ViewClientList(): JSX.Element {
   }, [setClientPosts]);
 
   return (
-    <Box w="50%" bg="">
-      {/* <VStack spacing={10} size="lg">
-       
-      </VStack> */}
+    <Box color="black" borderWidth="6px" fontWeight="semibold">
+      <VStack>
+        <Text fontSize="lg" color="pink.400">
+          {" "}
+          YOUR BUSINESS TO-DO LIST
+        </Text>
+      </VStack>
+      <VStack>
       <Table variant="simple" size="lg" colorScheme="twitter">
         <TableCaption>Start Up Business Checker </TableCaption>
         <Thead>
@@ -60,7 +67,7 @@ export default function ViewClientList(): JSX.Element {
               <Tr key={post.post_id}>
                 <Td>{post.post_description}</Td>
                 <Td>
-                  <EditCheckList clientTodo={post} />
+                  <EditCheckList clientTodo={post} getPosts={getPosts} />
                 </Td>
                 <Td>
                   <Checkbox> </Checkbox>
@@ -79,6 +86,7 @@ export default function ViewClientList(): JSX.Element {
           </Tr>
         </Tfoot>
       </Table>
+      </VStack>
     </Box>
   );
 }

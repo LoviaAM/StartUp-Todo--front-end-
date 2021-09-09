@@ -21,16 +21,15 @@ export default function EditCheckList(prop: clientTodoProp): JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   async function updateDescription(e: React.MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
     try {
       const body = { description };
       const apiBaseURL = process.env.REACT_APP_API_BASE;
-      await fetch(apiBaseURL + `/start-up/post/${prop.clientTodo.post_id}`, {
+      await fetch(apiBaseURL+`/start-up/post/${prop.clientTodo.post_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      //The window.location object can be used to get the current page address (URL) and to redirect the browser to a new page
+      await prop.getPosts()
     } catch (err) {
       console.log(err.message);
     }
@@ -56,8 +55,8 @@ export default function EditCheckList(prop: clientTodoProp): JSX.Element {
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant="ghost" onClick={updateDescription}>
-              Edit
+            <Button variant="pink.300" onClick={(e)=>updateDescription(e)}>
+              DONE
             </Button>
           </ModalFooter>
         </ModalContent>

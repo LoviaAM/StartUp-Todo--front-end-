@@ -20,5 +20,6 @@ export interface clientTodo {
 
 export interface clientTodoProp {
   clientTodo: clientTodo;
+  getPosts : ()=>Promise<void>
 }
 // interface for the database information

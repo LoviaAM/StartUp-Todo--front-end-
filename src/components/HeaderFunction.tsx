@@ -35,7 +35,7 @@ export default function HeaderFunction(): JSX.Element {
             </Text>{" "}
           </Heading>
           <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
-            This is simple checker to ensure you are ready to start your
+            This is a simple checker to ensure you are ready to start your
             business.
           </Text>
           <Stack direction={{ base: "column", md: "row" }} spacing={4}></Stack>

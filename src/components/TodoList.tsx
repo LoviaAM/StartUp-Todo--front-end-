@@ -1,3 +1,4 @@
+// component for searching through the library of todo lists- including filter function 
 import { Input } from "semantic-ui-react";
 import {
   Table,
@@ -31,10 +32,10 @@ export default function TodoList(): JSX.Element {
   function TodoDescriptionMatchesSearchTerm(item: todo) {
     return !item.description.includes(searchList);
   }
-  const filteredChecklist = Checklist.filter(TodoDescriptionMatchesSearchTerm); // conducts search on the basis of description  //task assign to not include!
+  const filteredChecklist = Checklist.filter(TodoDescriptionMatchesSearchTerm); // conducts search on the basis of description 
 
-  // add post to the database
   return (
+
     <Fragment>
       <VStack>
         <FormControl id="searchtodo">
@@ -48,7 +49,6 @@ export default function TodoList(): JSX.Element {
           <FormHelperText>Search through checklist.</FormHelperText>
         </FormControl>
       </VStack>
-
       <Grid templateColumns="repeat(2, 1fr)" gap={10}>
         <Box
           bg="gray.100"
