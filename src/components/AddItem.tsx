@@ -12,7 +12,6 @@ export default function AddItem(prop: todoProp): JSX.Element {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body), //understand this code- fetching post request
-        
       });
 
       console.log(response);

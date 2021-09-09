@@ -39,18 +39,18 @@ export default function ViewClientList(): JSX.Element {
       console.error(err.message);
     }
   }
-  async function deletePost(id: number){
+  async function deletePost(id: number) {
     try {
       //delete id specified as the parameter
-      const apiBaseURL = process.env.REACT_APP_API_BASE
-      await fetch(apiBaseURL+`/start-up/post/${id}`, {
+      const apiBaseURL = process.env.REACT_APP_API_BASE;
+      await fetch(apiBaseURL + `/start-up/post/${id}`, {
         method: "DELETE",
       });
-      console.log(deletePost)
+      console.log(deletePost);
     } catch (err) {
       console.error(err.message);
     }
-}
+  }
 
   useEffect(() => {
     getPosts();
@@ -83,7 +83,14 @@ export default function ViewClientList(): JSX.Element {
                     <EditCheckList clientTodo={post} getPosts={getPosts} />
                   </Td>
                   <Td>
-                    <Checkbox  iconColor="blue.400" iconSize="1rem" colorScheme="green" onChange={(e)=>deletePost(post.post_id)}> </Checkbox>
+                    <Checkbox
+                      iconColor="blue.400"
+                      iconSize="1rem"
+                      colorScheme="green"
+                      onChange={(e) => deletePost(post.post_id)}
+                    >
+                      {" "}
+                    </Checkbox>
                   </Td>
                 </Tr>
               ))
