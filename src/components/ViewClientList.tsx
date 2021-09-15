@@ -22,16 +22,10 @@ import EditCheckList from "./EditCheckList";
 
 export default function ViewClientList(): JSX.Element {
   const [clientPosts, setClientPosts] = useState<clientTodo[]>([]);
-  //     const [checked, setChecked] = useState(false)
-  // // checking the todolist
-  // function toggle(){
-  //     setChecked((checked)=> ({setChecked: !checked}))
-  // }
 
   // retrieve the post from data base
   async function getPosts() {
     try {
-      console.log("I was called");
       const apiBaseURL = process.env.REACT_APP_API_BASE;
       const response = await fetch(apiBaseURL + "/start-up/viewpost");
       const jsonData: clientTodo[] = await response.json();
