@@ -1,7 +1,7 @@
 // import EditCheckList from "./EditCheckList"; // use for the personalised client table- they can edit their posts
 import { useEffect, useState } from "react";
 import { clientTodo } from "../utils/interface";
-import "../stylesheet.css";
+import "../style/stylesheet.css"
 import { Box } from "@chakra-ui/layout";
 import {
   Table,

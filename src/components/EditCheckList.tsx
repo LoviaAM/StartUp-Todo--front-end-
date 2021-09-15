@@ -29,7 +29,7 @@ export default function EditCheckList(prop: clientTodoProp): JSX.Element {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      await prop.getPosts();
+    prop.getPosts();
     } catch (err) {
       console.log(err.message);
     }
@@ -53,7 +53,7 @@ export default function EditCheckList(prop: clientTodoProp): JSX.Element {
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+              CLOSE
             </Button>
             <Button variant="pink.300" onClick={(e) => updateDescription(e)}>
               DONE

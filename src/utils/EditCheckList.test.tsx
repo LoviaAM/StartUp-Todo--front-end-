@@ -1,44 +1,34 @@
 import EditCheckList from "../components/EditCheckList";
 import { render, screen } from "@testing-library/react";
 
+
 const clientTodo = {
     post_id: 1,
     post_description: "do Swot Analysis",
     post_tag: "operations"}
-  
-test ("the edit button that renders  input box and buttons  ",  () =>{
-   render(<EditCheckList clientTodo={clientTodo} />); 
-   const done = screen.getByRole('button', {name: 'DONE'});
-   const close = screen.getByRole('button', {name: 'Close'});
-   const edit = screen.getByRole('modal', {name: 'Edit'});
-   expect(done).toBeInTheDocument();
-   expect(close).toBeInTheDocument();
-   expect(edit).toBeInTheDocument();
 
+async function getPosts() {
+    try {
+      const apiBaseURL = process.env.REACT_APP_API_BASE;
+      const response = await fetch(apiBaseURL + "/start-up/viewpost");
+      const jsonData = await response.json();
+      console.log(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+  
+test ("renders an edit button, edit button triggers modal with input box and two additional buttons",  () =>{
+   render(<EditCheckList clientTodo={clientTodo} getPosts={getPosts} />); 
+   const edit = screen.getByRole("button", {name: 'Edit'});
+   expect (screen.queryByRole("input")).toBeNull();
+   expect (screen.queryByRole("button",{name:'DONE'})).toBeNull();
+   expect (screen.queryByRole("button",{name:'Close'})).toBeNull();
+   // triggering the modal opening with edit.click() 
+   edit.click()
+   const input = screen.queryByRole("input")
+   const done = screen.getByRole("button", {name: 'DONE'});
+   const close = screen.getByRole("button", {name: 'Close'});
+   //expect(input).toHaveTextContent("")
 })
-// test("greet returns a string, greeting the passed name", () => {
-//   expect(greet("World")).toBe("Hello, World!");
-//   expect(greet("Richard")).toBe("Hello, Richard!");
-//   expect(greet("Academy Scholars")).toBe("Hello, Academy Scholars!");
-// });
 
-
-// test('Link changes the class when hovered', () => {
-//     const component = renderer.create(
-//       <Link page="http://www.facebook.com">Facebook</Link>,
-//     );
-//     let tree = component.toJSON();
-//     expect(tree).toMatchSnapshot();
-  
-//     // manually trigger the callback
-//     tree.props.onMouseEnter();
-//     // re-rendering
-//     tree = component.toJSON();
-//     expect(tree).toMatchSnapshot();
-  
-//     // manually trigger the callback
-//     tree.props.onMouseLeave();
-//     // re-rendering
-//     tree = component.toJSON();
-//     expect(tree).toMatchSnapshot();
-//   });
