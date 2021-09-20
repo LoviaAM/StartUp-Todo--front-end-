@@ -29,7 +29,7 @@ export default function EditCheckList(prop: clientTodoProp): JSX.Element {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-    prop.getPosts();
+      prop.getPosts();
     } catch (err) {
       console.log(err.message);
     }

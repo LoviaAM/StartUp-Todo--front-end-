@@ -1,7 +1,7 @@
 // import EditCheckList from "./EditCheckList"; // use for the personalised client table- they can edit their posts
 import { useEffect, useState } from "react";
 import { clientTodo } from "../utils/interface";
-import "../style/stylesheet.css"
+import "../style/stylesheet.css";
 import { Box } from "@chakra-ui/layout";
 import {
   Table,
@@ -35,9 +35,9 @@ export default function ViewClientList(): JSX.Element {
       console.error(err.message);
     }
   }
+   //delete function- id specified as the parameter
   async function deletePost(id: number) {
     try {
-      //delete id specified as the parameter
       const apiBaseURL = process.env.REACT_APP_API_BASE;
       await fetch(apiBaseURL + `/start-up/post/${id}`, {
         method: "DELETE",

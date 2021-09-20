@@ -13,7 +13,8 @@ export default function AddItem(prop: todoProp): JSX.Element {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body), //understand this code- fetching post request
       });
-    } catch(err){
+      console.log(response);
+    } catch (err) {
       console.log(err.message);
     }
   };
