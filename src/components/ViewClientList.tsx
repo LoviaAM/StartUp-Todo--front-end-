@@ -35,7 +35,7 @@ export default function ViewClientList(): JSX.Element {
       console.error(err.message);
     }
   }
-   //delete function- id specified as the parameter
+  //delete function- id specified as the parameter
   async function deletePost(id: number) {
     try {
       const apiBaseURL = process.env.REACT_APP_API_BASE;

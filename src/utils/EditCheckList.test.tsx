@@ -27,9 +27,9 @@ test("renders an edit button, edit button triggers modal with input box and two 
   expect(screen.queryByRole("button", { name: "Close" })).toBeNull();
   // triggering the modal opening with edit.click()
   edit.click();
-  const input = screen.queryByRole("input");
-  const doneButton = screen.getByRole("button", { name: "DONE" });
-  const closeButton = screen.getByRole("button", { name: "Close" });
+  screen.queryByRole("input");
+  screen.getByRole("button", { name: "DONE" });
+  screen.getByRole("button", { name: "Close" });
 });
 
 // test("done button triggers the updateDescription", () => {
